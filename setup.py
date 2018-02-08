@@ -42,7 +42,7 @@ if 'GEOS_DIR' in os.environ:
     GEOS_dir = os.environ.get('GEOS_DIR')
 else:
 # set GEOS_dir manually here if automatic detection fails.
-    GEOS_dir = None
+    GEOS_dir = '/usr/local/lib/'
 
 user_home = os.path.expanduser('~')
 geos_search_locations = [user_home, os.path.join(user_home, 'local'),
@@ -109,9 +109,9 @@ datafiles = [os.path.join('data',os.path.basename(f)) for f in datafiles]
 package_data = {'mpl_toolkits.basemap':datafiles}
 
 requirements = [
-  "numpy>=1.2.1", 
+  "numpy>=1.2.1",
   "matplotlib>=1.0.0",
-  "pyproj >= 1.9.3", 
+  "pyproj >= 1.9.3",
   "pyshp >= 1.2.0"
 ]
 
@@ -146,7 +146,7 @@ setup(
   packages          = packages,
   namespace_packages = namespace_packages,
   package_dir       = package_dirs,
-  ext_modules       = extensions,   
+  ext_modules       = extensions,
   cmdclass = {'build_py': build_py},
   package_data = package_data
   )
